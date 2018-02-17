@@ -7,10 +7,10 @@ import com.udacity.sandwichclub.model.Sandwich;
 
 import java.util.List;
 
-public class SandwichDetailsViewModel {
-    private Sandwich sandwich;
+class SandwichDetailsViewModel {
+    private final Sandwich sandwich;
 
-    public SandwichDetailsViewModel(Sandwich sandwich) {
+    SandwichDetailsViewModel(Sandwich sandwich) {
         this.sandwich = sandwich;
     }
 
@@ -36,6 +36,7 @@ public class SandwichDetailsViewModel {
                 : View.VISIBLE;
     }
 
+    @SuppressWarnings("SameParameterValue")
     private String getListAsSingleString(List<String> list, String separator) {
         if (list == null || list.isEmpty()) {
             return "";

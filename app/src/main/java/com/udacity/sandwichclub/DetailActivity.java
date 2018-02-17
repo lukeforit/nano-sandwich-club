@@ -25,10 +25,11 @@ public class DetailActivity extends AppCompatActivity {
         ImageView ingredientsIv = findViewById(R.id.image_iv);
 
         Intent intent = getIntent();
-        if (intent == null) {
+        if (intent == null || !intent.hasExtra(EXTRA_POSITION)) {
             closeOnError();
         }
 
+        @SuppressWarnings("ConstantConditions")
         int position = intent.getIntExtra(EXTRA_POSITION, DEFAULT_POSITION);
         if (position == DEFAULT_POSITION) {
             // EXTRA_POSITION not found in intent
