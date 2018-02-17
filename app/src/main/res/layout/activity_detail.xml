@@ -37,6 +37,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/detail_place_of_origin_label"
                 android:textStyle="bold"
+                android:visibility="@{vm.originVisibility}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/image_iv" />
 
@@ -46,6 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{vm.origin}"
+                android:visibility="@{vm.originVisibility}"
                 app:layout_constraintStart_toEndOf="@id/origin_label_tv"
                 app:layout_constraintTop_toBottomOf="@id/image_iv"
                 tools:text="Origin" />
@@ -57,6 +59,7 @@
                 android:layout_height="21dp"
                 android:text="@string/detail_also_known_as_label"
                 android:textStyle="bold"
+                android:visibility="@{vm.alsoKnownAsVisibility}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/origin_tv" />
 
@@ -66,6 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{vm.alsoKnownAs}"
+                android:visibility="@{vm.alsoKnownAsVisibility}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/also_known_label_tv"
                 tools:text="Also known as" />

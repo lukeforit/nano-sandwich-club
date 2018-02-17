@@ -1,6 +1,7 @@
 package com.udacity.sandwichclub;
 
-import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
 
 import com.udacity.sandwichclub.model.Sandwich;
 
@@ -26,6 +27,15 @@ public class SandwichDetailsViewModel {
         return getListAsSingleString(sandwich.getIngredients(), ", ");
     }
 
+    public int getOriginVisibility() {
+        return TextUtils.isEmpty(sandwich.getPlaceOfOrigin()) ? View.GONE : View.VISIBLE;
+    }
+
+    public int getAlsoKnownAsVisibility() {
+        return sandwich.getAlsoKnownAs() == null || sandwich.getAlsoKnownAs().isEmpty() ? View.GONE
+                : View.VISIBLE;
+    }
+
     private String getListAsSingleString(List<String> list, String separator) {
         if (list == null || list.isEmpty()) {
             return "";
@@ -37,4 +47,6 @@ public class SandwichDetailsViewModel {
             return builder.substring(0, builder.length()-3);
         }
     }
+
+
 }
