@@ -7,11 +7,9 @@ import com.udacity.sandwichclub.model.Sandwich;
 import java.util.List;
 
 public class SandwichDetailsViewModel {
-    private Context context;
     private Sandwich sandwich;
 
-    public SandwichDetailsViewModel(Context context, Sandwich sandwich) {
-        this.context = context;
+    public SandwichDetailsViewModel(Sandwich sandwich) {
         this.sandwich = sandwich;
     }
 
@@ -29,7 +27,7 @@ public class SandwichDetailsViewModel {
     }
 
     private String getListAsSingleString(List<String> list, String separator) {
-        if (list == null) {
+        if (list == null || list.isEmpty()) {
             return "";
         } else {
             StringBuilder builder = new StringBuilder();

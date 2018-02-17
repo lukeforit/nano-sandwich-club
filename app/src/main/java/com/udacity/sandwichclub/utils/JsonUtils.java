@@ -46,7 +46,7 @@ public class JsonUtils {
                     sandwich.setPlaceOfOrigin(rootJson.getString(KEY_PLACE_OF_ORIGIN));
                 }
                 if (rootJson.has(KEY_INGREDIENTS)) {
-                    sandwich.setAlsoKnownAs(
+                    sandwich.setIngredients(
                             jsonArrayToListOfStrings(KEY_INGREDIENTS, rootJson));
                 }
             } catch (JSONException e) {
