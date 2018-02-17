@@ -31,6 +31,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                style="@style/BaseTextView"
                 android:id="@+id/origin_label_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,6 +41,7 @@
                 app:layout_constraintTop_toBottomOf="@id/image_iv" />
 
             <TextView
+                style="@style/BaseTextView"
                 android:id="@+id/origin_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -49,6 +51,7 @@
                 tools:text="Origin" />
 
             <TextView
+                style="@style/BaseTextView"
                 android:id="@+id/also_known_label_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="21dp"
@@ -58,6 +61,7 @@
                 app:layout_constraintTop_toBottomOf="@id/origin_tv" />
 
             <TextView
+                style="@style/BaseTextView"
                 android:id="@+id/also_known_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -67,6 +71,7 @@
                 tools:text="Also known as" />
 
             <TextView
+                style="@style/BaseTextView"
                 android:id="@+id/ingredients_label_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,6 +81,7 @@
                 app:layout_constraintTop_toBottomOf="@id/also_known_tv" />
 
             <TextView
+                style="@style/BaseTextView"
                 android:id="@+id/ingredients_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -85,6 +91,7 @@
                 tools:text="Ingredients" />
 
             <TextView
+                style="@style/BaseTextView"
                 android:id="@+id/description_label_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -94,6 +101,7 @@
                 app:layout_constraintTop_toBottomOf="@id/ingredients_tv" />
 
             <TextView
+                style="@style/BaseTextView"
                 android:id="@+id/description_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
