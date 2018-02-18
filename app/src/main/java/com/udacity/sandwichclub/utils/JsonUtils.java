@@ -24,45 +24,35 @@ public class JsonUtils {
     public static Sandwich parseSandwichJson(String json) {
         Sandwich sandwich = new Sandwich();
         if (!TextUtils.isEmpty(json)) {
+            JSONObject rootJson;
             try {
-                JSONObject rootJson = new JSONObject(json);
-                if (rootJson.has(KEY_NAME)) {
-                    JSONObject nameNode = rootJson.getJSONObject(KEY_NAME);
-                    if (nameNode.has(KEY_MAIN_NAME)) {
-                        sandwich.setMainName(nameNode.getString(KEY_MAIN_NAME));
-                    }
-                    if (nameNode.has(KEY_ALSO_KNOWN_AS)) {
-                        sandwich.setAlsoKnownAs(
-                                jsonArrayToListOfStrings(KEY_ALSO_KNOWN_AS, nameNode));
-                    }
-                }
-                if (rootJson.has(KEY_DESCRIPTION)) {
-                    sandwich.setDescription(rootJson.getString(KEY_DESCRIPTION));
-                }
-                if (rootJson.has(KEY_IMAGE)) {
-                    sandwich.setImage(rootJson.getString(KEY_IMAGE));
-                }
-                if (rootJson.has(KEY_PLACE_OF_ORIGIN)) {
-                    sandwich.setPlaceOfOrigin(rootJson.getString(KEY_PLACE_OF_ORIGIN));
-                }
-                if (rootJson.has(KEY_INGREDIENTS)) {
-                    sandwich.setIngredients(
-                            jsonArrayToListOfStrings(KEY_INGREDIENTS, rootJson));
-                }
+                rootJson = new JSONObject(json);
             } catch (JSONException e) {
                 e.printStackTrace();
                 return null;
             }
+            JSONObject nameNode = rootJson.optJSONObject(KEY_NAME);
+            if (nameNode != null) {
+                sandwich.setMainName(nameNode.optString(KEY_MAIN_NAME));
+                sandwich.setAlsoKnownAs(
+                        jsonArrayToListOfStrings(KEY_ALSO_KNOWN_AS, nameNode));
+            }
+            sandwich.setDescription(rootJson.optString(KEY_DESCRIPTION));
+            sandwich.setImage(rootJson.optString(KEY_IMAGE));
+            sandwich.setPlaceOfOrigin(rootJson.optString(KEY_PLACE_OF_ORIGIN));
+            sandwich.setIngredients(jsonArrayToListOfStrings(KEY_INGREDIENTS, rootJson));
+
         }
         return sandwich;
     }
 
-    private static List<String> jsonArrayToListOfStrings(String key, JSONObject node)
-            throws JSONException {
-        JSONArray alsoKnownAsArray = node.getJSONArray(key);
+    private static List<String> jsonArrayToListOfStrings(String key, JSONObject node) {
+        JSONArray alsoKnownAsArray = node.optJSONArray(key);
         List<String> alsoKnownAsList = new ArrayList<>();
-        for (int i = 0; i < alsoKnownAsArray.length(); i++) {
-            alsoKnownAsList.add(alsoKnownAsArray.getString(i));
+        if (alsoKnownAsArray != null) {
+            for (int i = 0; i < alsoKnownAsArray.length(); i++) {
+                alsoKnownAsList.add(alsoKnownAsArray.optString(i));
+            }
         }
         return alsoKnownAsList;
     }
