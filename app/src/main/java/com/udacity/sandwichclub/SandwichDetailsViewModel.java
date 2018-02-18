@@ -5,9 +5,7 @@ import android.view.View;
 
 import com.udacity.sandwichclub.model.Sandwich;
 
-import java.util.List;
-
-class SandwichDetailsViewModel {
+public class SandwichDetailsViewModel {
     private final Sandwich sandwich;
 
     SandwichDetailsViewModel(Sandwich sandwich) {
@@ -21,10 +19,10 @@ class SandwichDetailsViewModel {
         return sandwich.getDescription();
     }
     public String getAlsoKnownAs() {
-        return getListAsSingleString(sandwich.getAlsoKnownAs(), ", ");
+        return TextUtils.join(", ", sandwich.getAlsoKnownAs());
     }
     public String getIngredients() {
-        return getListAsSingleString(sandwich.getIngredients(), ", ");
+        return TextUtils.join(", ", sandwich.getIngredients());
     }
 
     public int getOriginVisibility() {
@@ -35,19 +33,4 @@ class SandwichDetailsViewModel {
         return sandwich.getAlsoKnownAs() == null || sandwich.getAlsoKnownAs().isEmpty() ? View.GONE
                 : View.VISIBLE;
     }
-
-    @SuppressWarnings("SameParameterValue")
-    private String getListAsSingleString(List<String> list, String separator) {
-        if (list == null || list.isEmpty()) {
-            return "";
-        } else {
-            StringBuilder builder = new StringBuilder();
-            for (String item : list) {
-                builder.append(item).append(separator);
-            }
-            return builder.substring(0, builder.length()-3);
-        }
-    }
-
-
 }
