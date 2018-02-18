@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.udacity.sandwichclub.model.Sandwich;
 
+@SuppressWarnings("WeakerAccess")
 public class SandwichDetailsViewModel {
     private final Sandwich sandwich;
 
