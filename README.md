@@ -1,3 +1,5 @@
+# The whole starter code provided with initial commit was obtained from udacity.com
+
 # Sandwich Club Project Starter Code
 
 ## Project Overview
